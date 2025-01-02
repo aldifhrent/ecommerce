@@ -9,27 +9,27 @@
       "color": [
         {
           "name": "green",
-          "code": "#000000"
+          "code": "#394C38"
         },
         {
           "name": "Pink",
-          "code": "#000000"
+          "code": "#FC8093"
         },
         {
           "name": "Blue",
-          "code": "#000000"
+          "code": "#A0B4C7"
         },
         {
           "name": "Midnight",
-          "code": "#000000"
+          "code": "#222930"
         },
         {
           "name": "Starlight",
-          "code": "#000000"
+          "code": "#FAF6F2"
         },
         {
           "name": "Red",
-          "code": "#000000"
+          "code": "#FC0324"
         }
       ],
       "images": [
@@ -46,28 +46,6 @@
       ],
       "model": "iPhone 13",
       "discount": 10,
-      "detailPhone": {
-        "detail": "iPhone 13. Sistem kamera ganda paling canggih yang pernah ada di iPhone. Chip A15 Bionic yang secepat kilat. Lompatan besar dalam kekuatan baterai. Desain kokoh. Dan layar Super Retina XDR yang lebih cerah.",
-        "isiKotak": [
-          "iPhone dengan iOS 15.",
-          "Kabel USB-C ke Lightning.",
-          "Buku Manual dan dokumentasi lain."
-        ]
-      },
-      "price": 10299000
-    },
-    {
-      "id": "apple-iphone-13z",
-      "phoneName": "Apple iPhone 13",
-      "category": "SmartPhone",
-      "brand": "Apple",
-      "images": [
-        "https://cdnpro.eraspace.com/media/catalog/product/i/p/iphone_13_green_1_3.jpg",
-        "https://cdnpro.eraspace.com/media/catalog/product/i/p/iphone_13_green_2_3.jpg",
-        "https://cdnpro.eraspace.com/media/catalog/product/i/p/iphone_13_green_3_3.jpg"
-      ],
-      "model": "iPhone 13",
-      "discount": 0,
       "detailPhone": {
         "detail": "iPhone 13. Sistem kamera ganda paling canggih yang pernah ada di iPhone. Chip A15 Bionic yang secepat kilat. Lompatan besar dalam kekuatan baterai. Desain kokoh. Dan layar Super Retina XDR yang lebih cerah.",
         "isiKotak": [

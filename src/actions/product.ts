@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 
+import { api } from "@/lib/api";
 import { Product } from "@/types";
-import axios from "axios";
 import { useState, useEffect } from "react";
 
 export const getProduct = () => {
@@ -11,7 +11,7 @@ export const getProduct = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/products");
+        const res = await api.get("/products");
         setProducts(res.data);
       } catch (error) {
         console.log(error);
@@ -32,7 +32,7 @@ export const useProductById = (slug: string) => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/products/${slug}`);
+        const res = await api.get(`/products/${slug}`);
         setProduct(res.data); // Assuming response contains the product object
         setLoading(false);
       } catch (err) {

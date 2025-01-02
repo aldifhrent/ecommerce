@@ -26,7 +26,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       async authorize(credentials) {
         try {
           const response = await fetch(
-            `http://localhost:5000/users?email=${credentials?.email}&password=${credentials?.password}`,
+            `https://ecommerce-kappa-two-78.vercel.app:5000/users?email=${credentials?.email}&password=${credentials?.password}`,
             {
               method: "GET",
               next: {

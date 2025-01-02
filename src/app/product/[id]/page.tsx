@@ -42,12 +42,12 @@ export default function Page() {
   return (
     <div className="container">
       <Header />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-20 items-start">
+      <div className="flex items-start justify-center gap-8 mt-20">
         {/* Left side - Images */}
         <div>
-          <div className="mb-4">
+          <div>
             <Carousel
-              className="w-[600px]"
+              className="mr-12 w-[600px]"
               opts={{
                 align: "start",
                 loop: true,
@@ -114,7 +114,6 @@ export default function Page() {
                   -
                 </button>
                 <input
-                  type="number"
                   value={quantity}
                   onChange={(e) =>
                     setQuantity(Math.max(1, parseInt(e.target.value) || 1))
@@ -166,6 +165,41 @@ export default function Page() {
                   )
                 )}
               </ul>
+            </div>
+          </div>
+        </div>
+        {/* Kolom Kanan - Varian */}
+        <div>
+          <h2 className="text-xl font-bold mb-4">Pilih Varian</h2>
+          <div className="space-y-4">
+            {/* Warna */}
+            <div>
+              <h3 className="font-semibold mb-2">Warna</h3>
+              <div className="flex gap-2">
+                {product.color?.map((c, idx) => (
+                  <div
+                    key={idx}
+                    className="w-8 h-8 rounded-full border-2 cursor-pointer"
+                    style={{ backgroundColor: c.code }} // Menggunakan c.code untuk warna latar belakang
+                    title={c.name} // Tooltip untuk menampilkan nama warna
+                  ></div>
+                ))}
+              </div>
+            </div>
+
+            {/* Kapasitas */}
+            <div>
+              <h3 className="font-semibold mb-2">Penyimpanan</h3>
+              <div className="flex gap-4">
+                {product.capacity?.map((cap, idx) => (
+                  <button
+                    key={idx}
+                    className="px-4 py-2 border rounded-lg cursor-pointer hover:shadow-lg hover:bg-gray-100"
+                  >
+                    {cap} GB
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>

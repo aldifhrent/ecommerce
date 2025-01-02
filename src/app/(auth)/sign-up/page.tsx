@@ -8,9 +8,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { api } from "@/lib/api";
 import { registerSchema } from "@/schema/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import axios from "axios";
 import { Eye, EyeOff, Lock, Mail, User } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -33,14 +33,14 @@ export default function Page() {
   const onSubmit = async (values: z.infer<typeof registerSchema>) => {
     try {
       // Perbaiki cara mengirim params
-      const res = await axios.get("http://localhost:5000/users", {
+      const res = await api.get("/users", {
         params: { email: values.email }, // Correctly pass the email as a query parameter
       });
 
       if (res.data.exists) {
         toast("User Already Exist ");
       } else {
-        await axios.post("http://localhost:5000/users", values);
+        await api.post("/users", values);
         toast.success("Register Success");
       }
     } catch (error) {

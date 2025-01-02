@@ -8,11 +8,16 @@ export interface Product {
   model?: string;
   detailPhone?: DetailPhone;
   price: number;
-  color?: string[];
+  color?: Color[];
   capacity?: string[];
 }
 
 export interface DetailPhone {
   detail: string;
   isiKotak: string[];
+}
+
+export interface Color {
+  name: string;
+  code: string;
 }
