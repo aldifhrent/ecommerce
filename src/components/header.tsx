@@ -35,7 +35,11 @@ export default function Header() {
             {session?.user ? (
               <div className="flex items-center gap-2 pl-2 hover:cursor-pointer">
                 <Avatar className="size-8">
-                  <AvatarImage src={session.user.image || ""} />
+                  {session?.user.image ? (
+                    <AvatarImage src={session.user.image || ""} />
+                  ) : (
+                    <div className="bg-gray-500 size-8 rounded-full"></div>
+                  )}
                 </Avatar>
 
                 <p className="">{session.user.name}</p>
@@ -47,17 +51,28 @@ export default function Header() {
                   className="rounded-full bg-[#008ECC] text-white p-[2px]"
                 />
 
-                <p className="hidden lg:block">
-                  <Link href="/sign-in">Sign In</Link>
-                  {/* <Link href="/sign-up">Sign Up</Link> */}
-                </p>
+                <div>
+                  <Link
+                    href="/sign-in"
+                    className="hover:underline hover:underline-offset-4 hover:font-bold"
+                  >
+                    Sign In
+                  </Link>
+                  <span> / </span>
+                  <Link
+                    href="/sign-up"
+                    className="hover:underline hover:underline-offset-4 hover:font-bold"
+                  >
+                    Sign Up
+                  </Link>
+                </div>
               </div>
             )}
           </div>
-          <div className="flex gap-2 pl-2">
+          {/* <div className="flex gap-2 pl-2">
             <CiHeart className="size-6 " />
             <p>Favorite</p>
-          </div>
+          </div> */}
           <SheetCart />
         </nav>
       </div>

@@ -8,16 +8,16 @@ export interface Product {
   model?: string;
   detailPhone?: DetailPhone;
   price: number;
-  color?: Color[];
-  capacity?: string[];
+  color?: Color[] | undefined;
+  capacity?: string[] | undefined[] | null[];
 }
 
 export interface DetailPhone {
-  detail: string;
+  detail: string | string[];
   isiKotak: string[];
 }
 
 export interface Color {
-  name: string;
-  code: string;
+  name: string | undefined;
+  code: string | undefined;
 }

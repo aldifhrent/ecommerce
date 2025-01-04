@@ -55,6 +55,103 @@
         ]
       },
       "price": 10299000
+    },
+    {
+      "id": "xiaomi-Redmi-Note-13-Pro-8-256GB-Lavender-Purple",
+      "phoneName": "Xiaomi Redmi Note 13 Pro 8/256GB - Lavender Purple",
+      "category": "SmartPhone",
+      "brand": "Xiaomi",
+      "capacity": [],
+      "color": [],
+      "images": [
+        "https://cdnpro.eraspace.com/media/catalog/product/x/i/xiaomi_redmi_note_13_pro_purplenew_1.jpg",
+        "https://cdnpro.eraspace.com/media/catalog/product/x/i/xiaomi_redmi_note_13_pro_purple_2.jpg",
+        "https://cdnpro.eraspace.com/media/catalog/product/x/i/xiaomi_redmi_note_13_pro_purple_3.jpg",
+        "https://cdnpro.eraspace.com/media/catalog/product/x/i/xiaomi_redmi_note_13_pro_purple_4.jpg",
+        "https://cdnpro.eraspace.com/media/catalog/product/x/i/xiaomi_redmi_note_13_pro_purple_5.jpg",
+        "https://cdnpro.eraspace.com/media/catalog/product/x/i/xiaomi_redmi_note_13_pro_purple_6.jpg",
+        "https://cdnpro.eraspace.com/media/catalog/product/x/i/xiaomi_redmi_note_13_pro_purple_7.jpg",
+        "https://cdnpro.eraspace.com/media/catalog/product/x/i/xiaomi_redmi_note_13_pro_purple_8.jpg",
+        "https://cdnpro.eraspace.com/media/catalog/product/x/i/xiaomi_redmi_note_13_pro_purple_9.jpg",
+        "https://cdnpro.eraspace.com/media/catalog/product/x/i/xiaomi_redmi_note_13_pro_purple_10.jpg",
+        "https://cdnpro.eraspace.com/media/catalog/product/x/i/xiaomi_redmi_note_13_pro_purple_11.jpg"
+      ],
+      "model": "Xiaomi Redmi Note 13 Pro",
+      "discount": 0,
+      "detailPhone": {
+        "detail": [
+          "Ukuran layar: 6.67 inci, 1080 x 2400 pixels, AMOLED, 1B colors, 120Hz",
+          "Memori: RAM 8 GB, ROM 256 GB, MicroSDXC Slot",
+          "Sistem operasi: Android 13, MIUI 14",
+          "CPU: Mediatek Helio G99 Ultra",
+          "GPU: Mali-G57 MC2",
+          "Kamera belakang: Triple 200 MP f/1.7 23mm (wide) PDAF OIS, 8 MP f/2.2 120˚ (ultrawide), 2 MP f/2.4 (macro)",
+          "Kamera depan: 16 MP f/2.4 (wide)",
+          "SIM: Hybrid Dual Nano SIM (Nano-SIM & Nano-SIM/microSD)",
+          "Baterai: Li-Po 5000 mAh, non-removable",
+          "Berat: 188 gram",
+          "Garansi Resmi"
+        ],
+        "isiKotak": []
+      },
+      "price": 3499000
+    },
+    {
+      "id": "samsung-galaxy-A35-5G-8-256GB-awesome-navy",
+      "phoneName": "Samsung Galaxy A35 5G 8/256GB - Awesome Navy",
+      "category": "SmartPhone",
+      "brand": "Samsung",
+      "capacity": [],
+      "color": [],
+      "images": [
+        "https://cdnpro.eraspace.com/media/catalog/product/s/a/samsung_galaxy_a35_5g_awesome_navy_1.jpg",
+        "https://cdnpro.eraspace.com/media/catalog/product/s/a/samsung_galaxy_a35_5g_awesome_navy_2.jpg",
+        "https://cdnpro.eraspace.com/media/catalog/product/s/a/samsung_galaxy_a35_5g_awesome_navy_3.jpg",
+        "https://cdnpro.eraspace.com/media/catalog/product/s/a/samsung_galaxy_a35_5g_awesome_navy_4.jpg",
+        "https://cdnpro.eraspace.com/media/catalog/product/s/a/samsung_galaxy_a35_5g_awesome_navy_5.jpg",
+        "https://cdnpro.eraspace.com/media/catalog/product/s/a/samsung_galaxy_a35_5g_awesome_navy_6.jpg",
+        "https://cdnpro.eraspace.com/media/catalog/product/s/a/samsung_galaxy_a35_5g_awesome_navy_7.jpg",
+        "https://cdnpro.eraspace.com/media/catalog/product/s/a/samsung_galaxy_a35_5g_awesome_navy_8.jpg",
+        "https://cdnpro.eraspace.com/media/catalog/product/s/a/samsung_galaxy_a35_5g_awesome_navy_9.jpg"
+      ],
+      "model": "Samsung Galaxy A35 5G",
+      "discount": 0,
+      "detailPhone": {
+        "detail": [
+          "Ukuran layar: 6.6 inci, 1080 x 2340 pixels, Super AMOLED, 120Hz, 1000 nits",
+          "Memori: RAM 8 GB, ROM 256 GB, microSDXC Slot",
+          "Sistem operasi: Android 14, One UI 6.1",
+          "CPU: Exynos 1380 (5 nm), Octa-core (4x2.4 GHz Cortex-A78 & 4x2.0 GHz Cortex-A55)",
+          "GPU: Mali-G68 MP5",
+          "Kamera: Triple 50 MP f/1.8 (wide) PDAF OIS, 8 MP f/2.2 123˚ (ultrawide), 5 MP f/2.4 (macro); Depan 13 MP f/2.2 (wide)",
+          "SIM: Hybrid Dual SIM (Nano-SIM & Nano-SIM/microSD)",
+          "Baterai: 5000 mAh, non-removable",
+          "Berat: 209 gr",
+          "Garansi Resmi"
+        ],
+        "isiKotak": []
+      },
+      "price": 4999000
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Leanne Graham",
+      "email": "KoQ9t@example.com",
+      "password": "1234"
+    },
+    {
+      "name": "please help me",
+      "email": "monsterdrop7@gmail.com",
+      "password": "123123ee",
+      "id": 2
+    },
+    {
+      "name": "Faray Bless",
+      "email": "smith@gmail.com",
+      "password": "123123ee",
+      "id": 3
     }
   ]
 }

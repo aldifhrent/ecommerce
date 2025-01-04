@@ -13,6 +13,7 @@ import { registerSchema } from "@/schema/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeOff, Lock, Mail, User } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaGoogle } from "react-icons/fa";
@@ -20,6 +21,7 @@ import { toast } from "sonner";
 import { z } from "zod";
 
 export default function Page() {
+  const router = useRouter();
   const [openPassword, setOpenPassword] = useState<boolean>(false);
   const form = useForm<z.infer<typeof registerSchema>>({
     resolver: zodResolver(registerSchema),
@@ -34,7 +36,7 @@ export default function Page() {
     try {
       // Perbaiki cara mengirim params
       const res = await api.get("/users", {
-        params: { email: values.email }, // Correctly pass the email as a query parameter
+        params: { email: values.email },
       });
 
       if (res.data.exists) {
@@ -42,6 +44,7 @@ export default function Page() {
       } else {
         await api.post("/users", values);
         toast.success("Register Success");
+        router.push("/sign-in");
       }
     } catch (error) {
       console.log(error);

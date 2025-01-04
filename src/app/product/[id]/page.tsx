@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import React, { useState } from "react";
-import { Heart, Share2, ShoppingCart } from "lucide-react";
 import Header from "@/components/header";
 import useCart from "@/actions/use.cart";
 import { useParams } from "next/navigation";
@@ -19,14 +17,15 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import Autoplay from "embla-carousel-autoplay";
 import { Badge } from "@/components/ui/badge";
+
 export default function Page() {
   const params = useParams<{ id: string }>();
-  console.log(params.id);
   const cart = useCart();
 
   // Fetch product using the custom hook
   const { product, loading, error } = useProductById(params.id);
   const [quantity, setQuantity] = useState(1);
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -59,29 +58,33 @@ export default function Page() {
               ]}
             >
               <CarouselContent>
-                {product.images?.map((_, index) => (
-                  <CarouselItem key={index}>
-                    <div className="relative p-1">
-                      <Card>
-                        <CardContent className="flex aspect-square items-center justify-center p-6">
-                          <Image
-                            src={product.images?.[index] || "/testor.png"}
-                            alt="Product"
-                            className="rounded-lg"
-                            width={600}
-                            height={600}
-                          />
-                          {/* Badge Diskon */}
-                          {product.discount > 0 && (
-                            <Badge className="absolute top-3 right-3 bg-blue-500 text-white text-sm px-2 py-1 rounded-full">
-                              {product.discount}% OFF
-                            </Badge>
-                          )}
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                ))}
+                {product.images && product.images.length > 0 ? (
+                  product.images.map((_, index) => (
+                    <CarouselItem key={index}>
+                      <div className="relative p-1">
+                        <Card>
+                          <CardContent className="flex aspect-square items-center justify-center p-6">
+                            <Image
+                              src={product.images?.[index] || "/testor.png"}
+                              alt="Product"
+                              className="rounded-lg"
+                              width={600}
+                              height={600}
+                            />
+                            {/* Badge Diskon */}
+                            {product.discount > 0 && (
+                              <Badge className="absolute top-3 right-3 bg-blue-500 text-white text-sm px-2 py-1 rounded-full">
+                                {product.discount}% OFF
+                              </Badge>
+                            )}
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))
+                ) : (
+                  <div>No images available</div>
+                )}
               </CarouselContent>
               <CarouselPrevious />
               <CarouselNext />
@@ -107,7 +110,6 @@ export default function Page() {
             <div className="flex items-center gap-4 mb-4">
               <div className="flex items-center">
                 <button
-                  // Assuming there's a quantity state
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
                   className="px-3 py-1 border rounded-l"
                 >
@@ -136,73 +138,87 @@ export default function Page() {
               >
                 + Keranjang
               </button>
-              <button className="flex-1 border border-red-500 text-red-500 py-2 rounded-lg">
+              <button
+                className="flex-1 border border-red-500 text-red-500 py-2 rounded-lg"
+                onClick={() => {
+                  cart.addItem(product);
+                  window.location.href = "/cart";
+                }}
+              >
                 Beli Langsung
               </button>
-            </div>
-
-            <div className="flex gap-4 mt-4">
-              <button className="flex items-center gap-2 text-gray-600">
-                <Heart size={20} /> Wishlist
-              </button>
-              {/* <button className="flex items-center gap-2 text-gray-600">
-                <Share2 size={20} /> Share
-              </button> */}
             </div>
           </div>
 
           <div className="border-t pt-6">
             <h2 className="text-lg font-bold mb-4">Detail Produk</h2>
-            <ul className="space-y-2">{product.detailPhone?.detail}</ul>
-            <div className="mt-4">
-              <h2 className="text-lg font-bold mb-4">Isi Kotak</h2>
-              <ul className="space-y-2">
-                {product.detailPhone?.isiKotak.map(
-                  (spec: string, idx: number) => (
-                    <li key={idx} className="text-sm text-gray-600">
-                      • {spec}
-                    </li>
-                  )
-                )}
-              </ul>
-            </div>
+            {Array.isArray(product.detailPhone?.detail) ? (
+              product.detailPhone.detail.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))
+            ) : (
+              <p>{product.detailPhone?.detail}</p>
+            )}
+            {product.detailPhone &&
+              product.detailPhone.isiKotak?.length > 0 && (
+                <div className="mt-4">
+                  <h2 className="text-lg font-bold mb-4">Isi Kotak</h2>
+                  <ul className="space-y-2">
+                    {product.detailPhone?.isiKotak?.map(
+                      (spec: string, idx: number) => (
+                        <li key={idx} className="text-sm text-gray-600">
+                          • {spec}
+                        </li>
+                      )
+                    )}
+                  </ul>
+                </div>
+              )}
           </div>
         </div>
-        {/* Kolom Kanan - Varian */}
-        <div>
-          <h2 className="text-xl font-bold mb-4">Pilih Varian</h2>
-          <div className="space-y-4">
-            {/* Warna */}
-            <div>
-              <h3 className="font-semibold mb-2">Warna</h3>
-              <div className="flex gap-2">
-                {product.color?.map((c, idx) => (
-                  <div
-                    key={idx}
-                    className="w-8 h-8 rounded-full border-2 cursor-pointer"
-                    style={{ backgroundColor: c.code }} // Menggunakan c.code untuk warna latar belakang
-                    title={c.name} // Tooltip untuk menampilkan nama warna
-                  ></div>
-                ))}
-              </div>
-            </div>
 
-            {/* Kapasitas */}
-            <div>
-              <h3 className="font-semibold mb-2">Penyimpanan</h3>
-              <div className="flex gap-4">
-                {product.capacity?.map((cap, idx) => (
-                  <button
-                    key={idx}
-                    className="px-4 py-2 border rounded-lg cursor-pointer hover:shadow-lg hover:bg-gray-100"
-                  >
-                    {cap} GB
-                  </button>
-                ))}
+        {product.color?.length > 0 && (
+          <div>
+            <h2 className="text-xl font-bold mb-4">Pilih Varian</h2>
+            <div className="space-y-4">
+              {/* Warna (Color) */}
+              <div>
+                <h3 className="font-semibold mb-2">Warna</h3>
+                {product.color && product.color.length > 0 ? (
+                  <div className="flex gap-2">
+                    {product.color.map((c, idx) => (
+                      <div
+                        key={idx}
+                        className="w-8 h-8 rounded-full border-2 cursor-pointer"
+                        style={{ backgroundColor: c.code }}
+                        title={c.name}
+                      ></div>
+                    ))}
+                  </div>
+                ) : (
+                  <p>No colors available</p> // Fallback message when no colors
+                )}
               </div>
+
+              {/* Kapasitas (Capacity) */}
+              {product.capacity && product.capacity.length > 0 && (
+                <div>
+                  <h3 className="font-semibold mb-2">Penyimpanan</h3>
+                  <div className="flex gap-4">
+                    {product.capacity.map((cap, idx) => (
+                      <button
+                        key={idx}
+                        className="px-4 py-2 border rounded-lg cursor-pointer hover:shadow-lg hover:bg-gray-100"
+                      >
+                        {cap} GB
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

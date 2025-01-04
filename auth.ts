@@ -1,6 +1,6 @@
 /** @format */
 
-import NextAuth, { User } from "next-auth";
+import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 
@@ -26,7 +26,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       async authorize(credentials) {
         try {
           const response = await fetch(
-            `https://ecommerce-kappa-two-78.vercel.app:5000/users?email=${credentials?.email}&password=${credentials?.password}`,
+            "http://localhost:5000/users?email=" +
+              credentials.email +
+              "&password=" +
+              credentials.password,
             {
               method: "GET",
               next: {
@@ -34,13 +37,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
               },
             }
           );
-
-          const data = (await response.json()) as User[];
-          if (!data.length) throw new Error("User not found");
+          const data = await response.json();
+          if (!data.length) throw new Error("Invalid email or password");
           const user = data[0];
           return user;
         } catch (error) {
-          console.log(error);
+          console.error(error);
           return null;
         }
       },

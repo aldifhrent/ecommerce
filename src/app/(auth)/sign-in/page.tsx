@@ -30,7 +30,16 @@ export default function Page() {
   });
 
   const onSubmit = async (values: z.infer<typeof loginSchema>) => {
-    console.log(values);
+    try {
+      await signIn("credentials", {
+        email: values.email,
+        password: values.password,
+        redirectTo: "/",
+      });
+    } catch (error) {
+      console.log(error);
+      window.location.href = "/";
+    }
   };
   const GoogleLogin = async () => {
     // Perform Google sign-in with redirect to the homepage

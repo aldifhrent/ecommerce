@@ -37,7 +37,9 @@ export default function BestDealsCard({ product }: ProductProps) {
 
       {/* Detail Produk */}
       <div className="p-4">
-        <h2 className="text-base font-semibold">{product.phoneName}</h2>
+        <h2 className="text-base font-semibold truncate">
+          {product.phoneName}
+        </h2>
         <div className="flex items-center gap-2 mt-1">
           <span className="text-lg font-bold text-black">
             {price(product.price - product.price * (product.discount / 100))}
