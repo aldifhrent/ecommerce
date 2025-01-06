@@ -177,7 +177,7 @@ export default function Page() {
           </div>
         </div>
 
-        {product.color?.length > 0 && (
+        {product.color?.length && (
           <div>
             <h2 className="text-xl font-bold mb-4">Pilih Varian</h2>
             <div className="space-y-4">
